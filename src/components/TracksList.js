@@ -8,7 +8,12 @@ import {
     LoaderContainer,
     LoadingText,
     TrackList,
-    TrackItem
+    TrackItem,
+    BottomContainer,
+    P,
+    P2,
+    TopContainer,
+    Score
 } from 'utils/styles'
 
 
@@ -41,9 +46,17 @@ export const TracksList = () => {
             <TrackList>
                 {tracks.map((track) => (
                     <TrackItem key={track.id}>
-                        <TrackTitle>{track.trackName}</TrackTitle>
-                        <ArtistTitle>{track.artistName}</ArtistTitle>
-                        <Genre>{track.genre}</Genre>
+                        <TopContainer>
+                            <TrackTitle>{track.trackName}</TrackTitle>
+                            <ArtistTitle>{track.artistName}</ArtistTitle>
+                        </TopContainer>
+                        <BottomContainer>
+                            <Genre>{track.genre}</Genre>
+                            <Score>
+                                <P2>Score</P2>
+                                <P>{track.popularity}</P>
+                            </Score>
+                        </BottomContainer>
                     </TrackItem>
                 ))}
             </TrackList>

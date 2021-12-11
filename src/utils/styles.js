@@ -17,8 +17,7 @@ export const HeadingContainer = styled.section`
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding-top: 4rem;
-    justify-content: center;
+    padding-top: 10rem;
 `
 
 export const Title = styled.div`
@@ -129,7 +128,7 @@ export const Button = styled.button`
 
 export const TickerWrap = styled.div`
     position: fixed;
-    top: 0;
+    top: 2rem;
     width: 100%;
     // overflow: hidden;
     height: 4rem;
@@ -195,6 +194,7 @@ color: #fff;
 font-size: 16px;
 margin: 0;
 font-family: museomoderno;
+padding-top: 0.5rem;
 `
 
 export const Genre = styled.h4`
@@ -237,12 +237,48 @@ export const TrackList = styled.div`
 `
 
 export const TrackItem = styled.div`
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
     background-color: #1a1a1a;
     width: 300px;
     position: relative;
     margin: 16px;
     padding: 32px;
     min-height: 272px;  
+`
+
+export const BottomContainer = styled.div`
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+`
+
+export const Score = styled.div`
+    display: flex;
+    flex-direction: row;
+    align-items: baseline;
+    gap: 1rem;
+`
+
+export const P = styled.p`
+    font-size: 40px;
+    line-height: 40px;
+    margin-bottom: 0;
+    backgrund-color: #1a1a1a;
+    color: #fff;
+`
+
+export const TopContainer = styled.div`
+    display: flex;
+    flex-direction: column;
+`
+
+export const P2 = styled.h4`
+color: #fff;
+font-size: 12px;
+margin: 0;
+font-family: museomoderno;
 `
 
 
