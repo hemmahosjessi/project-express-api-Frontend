@@ -1,58 +1,101 @@
-import React, { useEffect, useState } from "react"
-import styled from "styled-components"
-import { Link } from 'react-router-dom'
-import { API_URL_ALL } from 'utils/urls'
-import Select from 'react-select';
-import 'bootstrap/dist/css/bootstrap.min.css'
+import React, { useState } from "react"
+import { HeaderSmall } from "./HeaderSmall"
 import { 
-    SelectContainer,
-    ListByGenre,
+    Dropdown,
+    Form,
+    SubmitButton,
+    P,
+    P2,
     Genre,
-    GenreItem,
-    TrackTitle,
+    BottomContainer,
     ArtistTitle,
+    Score,
+    TopContainer,
+    TrackTitle,
+    TrackList,
+    TrackItem,
 } from 'utils/styles'
+import { TracksList } from "./TracksList"
 
 
-const GenreOptions = [
-    { label: "Pop" },
-    { label: "Edm" },
-    { label: "Brostep" },
-    { label: "Latin" },
-    { label: "R&B en Espanol" },
-    { label: "Dance Pop" },
-    { label: "Edm" },
-    { label: "Boy Band" },
-    { label: "Panamanian Pop" },
-  ];
 
 
 export const Genres = () => {
-    const [tracks, setTracks] = useState([])
+    const [selectInput, setSelectInput] = useState('')
+    const [selectedGenres, setSelectedGenres] = useState([])
 
-    useEffect(() => {
-        fetch(API_URL_ALL)
-        .then((res) => res.json())
-        .then((json) => 
-            setTracks(json))
-    }, [])
+    const fetchSelectedGenre = (selectInput) => {
+        fetch(`https://jes-50-popular-tracks-expr-api.herokuapp.com/tracks?genre=${selectInput}`)
+          .then((res) => res.json())
+          .then((json) => {
+            setSelectedGenres(json.response)
+            console.log("WHATS UP?", json)
+          })
+      }
+
+
+    const onSetSelectInputChange = (event) => {
+        setSelectInput(event.target.value)
+      }
+    
+      const handleInputChange = (event) => {
+        fetchSelectedGenre(selectInput)
+        setSelectInput(selectInput)
+        setSelectedGenres([])
+        event.preventDefault()
+      }
+
 
     return (
     
         <>
-            <SelectContainer>
-                <Select options={GenreOptions} />
-            </SelectContainer>
+          <HeaderSmall />
 
-            <ListByGenre>
-            {tracks.map((track) => (
-                <GenreItem key={track.id}>
-                    <TrackTitle>{track.trackName}</TrackTitle>
-                    <ArtistTitle>{track.artistName}</ArtistTitle>
-                    <Genre>{track.genre}</Genre>
-                </GenreItem>
-            ))}
-            </ListByGenre>
+            <Form onSubmit={handleInputChange}>
+                <Dropdown
+                    type="text"
+                    value={selectInput}
+                    onChange={onSetSelectInputChange}
+                    >   
+                    <option value=''>Select genre</option>
+                    <option value='Edm'>Edm</option>
+                    <option value='Brostep'>Brostep</option>
+                    <option value='Latin'>Latin</option>
+                    <option value='Pop'>Pop</option>
+                    <option value='Dance Pop'>Dance Pop</option>
+                    <option value='Boy Band'>Boy Band</option>
+                    <option value='Panamanian Pop'>Panamanian Pop</option>
+                    <option value='dfw rap'>dfw rap</option>
+                    <option value='trap music'>Trap music</option>
+                    <option value='country rap'>Country rap</option>
+                    <option value='electropop'>Electropop</option>
+                    <option value='reggaeton'>Reggaeton</option>
+                    <option value='canadian hip hop'>Canadian hip hop</option>
+                    <option value='pop house'>Pop house</option>
+                </Dropdown>
+                <SubmitButton onSubmit={handleInputChange}> Show genre</SubmitButton>
+            </Form>
+
+                {selectInput.length === 0 && <TracksList />}
+                {selectInput.length !== 0 && (
+                <TrackList>
+                      {selectedGenres.map((genre) =>(
+                          <TrackItem key={genre.id}>
+                              <TopContainer>
+                                  <TrackTitle>{genre.trackName}</TrackTitle>
+                                  <ArtistTitle>{genre.artistName}</ArtistTitle>
+                              </TopContainer>
+                              <BottomContainer>
+                                  <Genre>{genre.genre}</Genre>
+                                  <Score>
+                                      <P2>Score</P2>
+                                      <P>{genre.popularity}</P>
+                                  </Score>
+                              </BottomContainer>
+                          </TrackItem>
+                      ))}
+                  </TrackList>
+                )}
         </>
 
     )

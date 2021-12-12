@@ -13,7 +13,7 @@ import {
     P,
     P2,
     TopContainer,
-    Score
+    Score,
 } from 'utils/styles'
 
 
@@ -30,6 +30,8 @@ export const TracksList = () => {
             setTracks(json))
             setLoading(false)
     }, [])
+
+    
 
     console.log(tracks)
 

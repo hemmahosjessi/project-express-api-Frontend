@@ -14,7 +14,6 @@ import {
     ButtonContainer,
     Button,
     Ticker,
-    TickerAnimation,
     TickerWrap,
     TickerItem
 } from 'utils/styles'
@@ -45,14 +44,12 @@ export const StartScreen = () => {
                         </Text>
                     </Title>
                     <ButtonContainer>
-                        {/* <Button>Tracks A-Z</Button>
-                        <Button>Artists A-Z</Button>*/}
                         <Link  to='/alltracks'>
-                            <Button>All</Button>
+                            <Button>Show Tracks</Button>
                         </Link>
-                        <Link to='/genres'>
-                            <Button>Genres</Button> 
-                        </Link>
+                        {/* <Link to='/genres'>
+                            <Button>Choose by genre</Button> 
+                        </Link> */}
 
                     </ButtonContainer>
             </HeadingContainer>
