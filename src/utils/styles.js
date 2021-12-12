@@ -269,6 +269,7 @@ export const TrackList = styled.div`
     justify-content: center;
     background-color: #222;
     padding-bottom: 4rem;
+    min-height: 100vh;
 `
 
 export const TrackItem = styled.div`
@@ -277,6 +278,7 @@ export const TrackItem = styled.div`
     justify-content: space-between;
     background-color: #1a1a1a;
     width: 300px;
+    max-height: 300px;
     position: relative;
     margin: 16px;
     padding: 32px;

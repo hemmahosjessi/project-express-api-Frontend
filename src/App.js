@@ -1,7 +1,6 @@
 import React from 'react'
 import { StartScreen } from './components/StartScreen'
-import { TracksListPage } from './components/TracksListPage'
-// import { Genres } from 'components/Genres'
+import { Genres } from 'components/Genres'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 
 
@@ -11,9 +10,7 @@ export const App = () => {
     <BrowserRouter>
     <Routes>
       <Route path="/" element={<StartScreen /> }> </Route>
-      <Route path="/alltracks" element={<TracksListPage />}> 
-      </Route>
-      {/* <Route path="/genres" element={<Genres />}> </Route> */}
+      <Route path="/alltracks" element={<Genres />}> </Route>
     </Routes> 
     </BrowserRouter>
 

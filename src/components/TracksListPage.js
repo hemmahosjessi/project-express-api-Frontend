@@ -1,12 +1,12 @@
-import React from "react"
-import { Genres } from "./Genres"
+// import React from "react"
+// import { Genres } from "./Genres"
 
 
-export const TracksListPage = () => {
+// export const TracksListPage = () => {
 
-    return (
-        <>
-            <Genres />
-        </>
-    )
-}
+//     return (
+//         <>
+//             <Genres />
+//         </>
+//     )
+// }
