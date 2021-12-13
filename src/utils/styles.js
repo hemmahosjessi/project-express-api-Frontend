@@ -23,6 +23,7 @@ export const HeadingContainer = styled.section`
 export const Title = styled.div`
     display: flex;
     align-items: center;
+    padding-bottom: 3rem;
 `
 
 export const Text = styled.div`
@@ -76,7 +77,6 @@ export const ButtonContainer = styled.div`
     display: flex;
     align-items: center;
     gap: 2rem;
-    padding-top: 3rem;
 `
 
 export const Button = styled.button`
@@ -185,7 +185,9 @@ export const Ticker = styled.div`
 export const Header = styled.header`
       padding: 48px;
       display: flex;
+      flex-direction: column;
       justify-content: center;
+      align-items: center;
       position: sticky;
       background-color: #222;
 `
@@ -387,7 +389,7 @@ export const Dropdown = styled.select`
     border: none;
     color: #fff;
     padding-left: 1rem;
-    padding-right: 1rem;
+    padding-right: 3rem;
     margin-right: 1rem;
     background-color: #333;
 `
