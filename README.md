@@ -13,3 +13,5 @@ Needs some more love.
 
 This is the Netlify-link:
 
+The API on Heroku https://jes-50-popular-tracks-expr-api.herokuapp.com/
+https://allyouneedismusic.netlify.app/
